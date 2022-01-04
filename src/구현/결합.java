@@ -1,4 +1,4 @@
-package ±¸Çö;
+package êµ¬í˜„;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-public class °áÇÕ {
+public class ê²°í•© { 
 	static class Point{
 		String type, color, back;
 		public Point(String type, String color, String back) {
@@ -91,7 +91,7 @@ public class °áÇÕ {
 	}
 	
 	public static boolean checkHap() {
-		// ¸ğ¾ç, »ö, ¹è°æ¼ø¼­
+		// å ì™ì˜™å ï¿½, å ì™ì˜™, å ì™ì˜™å ì™ì˜™å ì™ì˜™
 		int a = arr[0];
 		int b = arr[1];
 		int c = arr[2];
