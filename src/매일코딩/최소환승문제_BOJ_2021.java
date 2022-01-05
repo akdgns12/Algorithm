@@ -1,5 +1,5 @@
 package 매일코딩;
-
+//
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
 
 // 다익스트라 알고리즘
 
-public class _2021_올영_2번최소환승문제_BOJ_2021 {
+public class 최소환승문제_BOJ_2021 {
 	static class Node implements Comparable<Node>{ // 우선순위 큐에 데이터가 들어갈 때마다 distance가 더 낮은 값이 우선순위가 높도록 Comparable 클래스 설정
 		int index;
 		int distance;

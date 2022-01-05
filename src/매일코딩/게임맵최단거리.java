@@ -1,5 +1,5 @@
 package 매일코딩;
-
+//
 public class 게임맵최단거리 {
 	import java.util.*;
 

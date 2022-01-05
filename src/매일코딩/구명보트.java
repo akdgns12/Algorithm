@@ -1,5 +1,5 @@
 package 매일코딩;
-
+//
 public class 구명보트 {
 	import java.util.Arrays;
 	class Solution {

@@ -2,7 +2,7 @@ package 구현;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+//
 public class 압축 {
 	public int[] solution(String msg) {
 		ArrayList<Integer> result = new ArrayList<>();

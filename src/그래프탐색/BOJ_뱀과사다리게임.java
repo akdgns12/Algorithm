@@ -1,5 +1,5 @@
-package ±×·¡ÇÁÅ½»ö;
-
+package ê·¸ë˜í”„íƒìƒ‰;
+//
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,15 +7,15 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class BOJ_¹ì°ú»ç´Ù¸®°ÔÀÓ {
-	// BOJ ¹ì°ú»ç´Ù¸® °ÔÀÓ / ½Ç¹ö 1 / ±×·¡ÇÁ Å½»ö
-	// ¸ñÇ¥ÁöÁ¡±îÁö ÀÌµ¿ÇÏ±â À§ÇØ ±¼·Á¾ß ÇÏ´Â È½¼öÀÇ ÃÖ¼Ú°ª
+public class BOJ_ë±€ê³¼ì‚¬ë‹¤ë¦¬ê²Œì„ {
+	// BOJ ë±€ê³¼ì‚¬ë‹¤ë¦¬ ê²Œì„ / ì‹¤ë²„ 1 / ê·¸ë˜í”„ íƒìƒ‰
+	// ëª©í‘œì§€ì ê¹Œì§€ ì´ë™í•˜ê¸° ìœ„í•´ êµ´ë ¤ì•¼ í•˜ëŠ” íšŸìˆ˜ì˜ ìµœì†Ÿê°’
 	/*
-	 * ·ÎÁ÷
-	 * ¹æ¹®Çß´ø Ä­Àº ´Ù½Ã ¹æ¹®ÇÏÁö ¾Ê°Ô boolean ¹è¿­
-	 * ÁÖ»çÀ§´Â 1~6 ÇØ´ç Ä­¿¡¼­ 6¹øÀÇ ´Ù¸¥ À§Ä¡·Î ÀÌµ¿ÇÒ ±âÈ¸
-	 * ÀÌ ¶§ ÇØ´ç Ä­ÀÌ »ç´Ù¸®³ª ¹ìÀÎÁö ÆÇ´ÜÇØ »ç´Ù¸®³ª ¹ìÀÌ¸é ÀÔ·ÂÇß´ø
-	 * ´Ù¸¥ Ä­À¸·Î ÀÌµ¿ÇÏ°í ¾Æ´Ï¶ó¸é ÁÖ»çÀ§ÀÇ ¼ıÀÚ¸¸Å­ ÀÌµ¿
+	 * ë¡œì§
+	 * ë°©ë¬¸í–ˆë˜ ì¹¸ì€ ë‹¤ì‹œ ë°©ë¬¸í•˜ì§€ ì•Šê²Œ boolean ë°°ì—´
+	 * ì£¼ì‚¬ìœ„ëŠ” 1~6 í•´ë‹¹ ì¹¸ì—ì„œ 6ë²ˆì˜ ë‹¤ë¥¸ ìœ„ì¹˜ë¡œ ì´ë™í•  ê¸°íšŒ
+	 * ì´ ë•Œ í•´ë‹¹ ì¹¸ì´ ì‚¬ë‹¤ë¦¬ë‚˜ ë±€ì¸ì§€ íŒë‹¨í•´ ì‚¬ë‹¤ë¦¬ë‚˜ ë±€ì´ë©´ ì…ë ¥í–ˆë˜
+	 * ë‹¤ë¥¸ ì¹¸ìœ¼ë¡œ ì´ë™í•˜ê³  ì•„ë‹ˆë¼ë©´ ì£¼ì‚¬ìœ„ì˜ ìˆ«ìë§Œí¼ ì´ë™
 	 */
 	
 	static int N,M;
@@ -26,10 +26,10 @@ public class BOJ_¹ì°ú»ç´Ù¸®°ÔÀÓ {
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
-		N = Integer.parseInt(st.nextToken()); // »ç´Ù¸® ¼ö
-		M = Integer.parseInt(st.nextToken()); // ¹ì ¼ö
+		N = Integer.parseInt(st.nextToken()); // ì‚¬ë‹¤ë¦¬ ìˆ˜
+		M = Integer.parseInt(st.nextToken()); // ë±€ ìˆ˜
 		
-		// »ç´Ù¸® Á¤º¸
+		// ì‚¬ë‹¤ë¦¬ ì •ë³´
 		for(int i=0; i<N+M; i++) {
 			st = new StringTokenizer(br.readLine());
 			int x = Integer.parseInt(st.nextToken());
@@ -43,7 +43,7 @@ public class BOJ_¹ì°ú»ç´Ù¸®°ÔÀÓ {
 	public static void bfs() {
 		Queue<Integer> q = new LinkedList<>();
 		q.offer(1);
-		count[1] = 0; // Ä­ ÀÎµ¦½º¿¡ µû¸¥ ÀÌµ¿È½¼ö ÀúÀå ¹è¿­
+		count[1] = 0; // ì¹¸ ì¸ë±ìŠ¤ì— ë”°ë¥¸ ì´ë™íšŸìˆ˜ ì €ì¥ ë°°ì—´
 		visited[1] = true;
 		
 		while(!q.isEmpty()) {
@@ -53,19 +53,19 @@ public class BOJ_¹ì°ú»ç´Ù¸®°ÔÀÓ {
 				return;
 			}
 			
-			for(int i=1; i<7; i++) { // ÁÖ»çÀ§ 1~6ÀÌ´Ï±î 
-				int x = cur + i; // x : ÁÖ»çÀ§ ±¼¸®°í ³­ ÈÄ ÀÌµ¿ ÁÂÇ¥ 
-				if(100 < x) continue; // ¹üÀ§ ¹ş¾î³ª¸é skip
-				if(visited[x]) continue; // ¹æ¹®Çß´ø °÷ÀÌ¸é skip
+			for(int i=1; i<7; i++) { // ì£¼ì‚¬ìœ„ 1~6ì´ë‹ˆê¹Œ 
+				int x = cur + i; // x : ì£¼ì‚¬ìœ„ êµ´ë¦¬ê³  ë‚œ í›„ ì´ë™ ì¢Œí‘œ 
+				if(100 < x) continue; // ë²”ìœ„ ë²—ì–´ë‚˜ë©´ skip
+				if(visited[x]) continue; // ë°©ë¬¸í–ˆë˜ ê³³ì´ë©´ skip
 				visited[x] = true;
 				
-				if(ladderAndSnake[x] != 0) { // »ç´Ù¸® ¶Ç´Â ¹ìÀÇ À§Ä¡ÀÏ ¶§
-					if(!visited[ladderAndSnake[x]]) { // ¹æ¹®ÇÑ °÷ÀÌ ¾Æ´Ï¶ó¸é
+				if(ladderAndSnake[x] != 0) { // ì‚¬ë‹¤ë¦¬ ë˜ëŠ” ë±€ì˜ ìœ„ì¹˜ì¼ ë•Œ
+					if(!visited[ladderAndSnake[x]]) { // ë°©ë¬¸í•œ ê³³ì´ ì•„ë‹ˆë¼ë©´
 						q.offer(ladderAndSnake[x]); // 
 						visited[ladderAndSnake[x]] = true;
 						count[ladderAndSnake[x]] = count[cur] + 1;
 					}
-				}else { // ¾Æ¹«°Íµµ ¾Æ´Ò¶§(»ç´Ù¸® ¶Ç´Â ¹ìÀÇ À§Ä¡°¡ ¾Æ´Ò‹š)
+				}else { // ì•„ë¬´ê²ƒë„ ì•„ë‹ë•Œ(ì‚¬ë‹¤ë¦¬ ë˜ëŠ” ë±€ì˜ ìœ„ì¹˜ê°€ ì•„ë‹ï¿½ï¿½)
 					q.offer(x);
 					count[x] = count[cur] + 1;
 				}

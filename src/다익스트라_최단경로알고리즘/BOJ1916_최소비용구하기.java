@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-
+//
 public class BOJ1916_최소비용구하기 {
 	static class Node implements Comparable<Node> {
 		int end;

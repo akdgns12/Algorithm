@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+//
 public class BOJ_2573 {
 	// ºù»ê / °ñ4
 	static int N, M;

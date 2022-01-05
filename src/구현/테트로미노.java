@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
+//
 public class 테트로미노 {
 	static int[][] map;
 	static int N, M;

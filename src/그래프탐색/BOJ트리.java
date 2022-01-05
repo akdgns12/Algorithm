@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
-
+//
 public class BOJ트리 {
 	static int N;
 	static int root; // 루트 노드를 저장할 변수

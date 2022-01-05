@@ -1,4 +1,4 @@
-class Solution {
+class Solution {//
     public int solution(int n) {
         int answer =0;
 		//1. n을 2진수로 변환

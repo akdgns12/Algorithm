@@ -1,4 +1,4 @@
-package ±×·¡ÇÁÅ½»ö;
+package ê·¸ë˜í”„íƒìƒ‰;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +6,9 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+//
 public class BOJ_4179 {
-	// ºÒ! / °ñ4 / bfs / ºÒ°ú »ç¶÷ µ¿½Ã¿¡ ÆÛÁöµµ·Ï ¿òÁ÷ÀÌ°Ô ÇÏ´Â °ÍÀÌ °ü°ÇÀÎ ¹®Á¦
+	// ë¶ˆ! / ê³¨4 / bfs / ë¶ˆê³¼ ì‚¬ëŒ ë™ì‹œì— í¼ì§€ë„ë¡ ì›€ì§ì´ê²Œ í•˜ëŠ” ê²ƒì´ ê´€ê±´ì¸ ë¬¸ì œ
 	static int R,C;
 	static char[][] map;
 	static boolean[][] visited;
@@ -29,7 +29,7 @@ public class BOJ_4179 {
 		
 		map = new char[R][C];
 		visited = new boolean[R][C];
-		// #:º®, .:Áö³ª°¥ ¼ö ÀÖ´Â °ø°£, J:ÁöÈÆÀÌÀÇ ÃÊ±âÀ§Ä¡(Áö³ª°¥ ¼ö ÀÖ´Â °ø°£), F:ºÒÀÌ³­ °ø°£
+		// #:ë²½, .:ì§€ë‚˜ê°ˆ ìˆ˜ ìˆëŠ” ê³µê°„, J:ì§€í›ˆì´ì˜ ì´ˆê¸°ìœ„ì¹˜(ì§€ë‚˜ê°ˆ ìˆ˜ ìˆëŠ” ê³µê°„), F:ë¶ˆì´ë‚œ ê³µê°„
 		for(int i=0; i<R; i++) {
 			String str = br.readLine();
 			for(int j=0; j<C; j++) {
@@ -50,7 +50,7 @@ public class BOJ_4179 {
 	}
 	
 	public static void bfs() {
-		// ºÒºÎÅÍ ÀÌµ¿(Áß¿ä)
+		// ë¶ˆë¶€í„° ì´ë™(ì¤‘ìš”)
 		int cnt = 0;
 		while(!man.isEmpty()) {
 			int fs = fire.size();
@@ -79,7 +79,7 @@ public class BOJ_4179 {
 					int nx = node.x + dx[i];
 					int ny = node.y + dy[i];
 					
-					// Á¾·á Á¶°Ç
+					// ì¢…ë£Œ ì¡°ê±´
 					if(nx < 0 || ny < 0 || nx >= R || ny >= C) {
 						ans = cnt++;
 						return;
@@ -107,7 +107,7 @@ public class BOJ_4179 {
 	static class Node{
 		int x,y;
 		
-		public Node(int x, int y) { // fireÀÏ‹šÀÇ »ı¼ºÀå
+		public Node(int x, int y) { // fireì¼ï¿½ï¿½ì˜ ìƒì„±ì¥
 			this.x = x;
 			this.y = y;
 		}

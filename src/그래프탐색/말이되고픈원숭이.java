@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+//
 public class ¸»ÀÌµÇ°íÇÂ¿ø¼şÀÌ {
 	// BOJ ¸»ÀÌµÇ°íÇÂ ¿ø¼şÀÌ / °ñ 4 / 
 	static class Monkey{

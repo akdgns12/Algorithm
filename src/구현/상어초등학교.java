@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-
+//
 public class 상어초등학교 {
 	static class Student{
 		int x, y;

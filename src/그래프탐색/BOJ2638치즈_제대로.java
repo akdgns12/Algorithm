@@ -1,5 +1,5 @@
-package ±×·¡ÇÁÅ½»ö;
-
+package ê·¸ëž˜í”„íƒìƒ‰;
+//
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,21 +8,21 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 /*
- * ¿ÜºÎ°ø±â, ³»ºÎ°ø±â ¾î¶»°Ô ±¸ºÐÇÒ °ÍÀÎÁö°¡ °ü°Ç
- * 1. (0,0)¿¡¼­ bfsÅ½»öÀ» ½ÃÀÛÇØ¼­ ¿ÜºÎ°ø±âµé¸¸ Å¥¿¡ ³ÖÀ¸¸é¼­ Å½»ö ¿ÜºÎ°ø±â´Â 2·Î ÀÎµ¦½ÌÇØÁØ´Ù
- * Ä¡Áî´Â ³ÖÁö ¾Ê°í Å½»öÇß±â ‹š¹®¿¡ ³»ºÎ°ø±â¿¡ Á¢±ÙÇÏÁö ¾Ê´Â´Ù. Å½»öÇÑ ¿ÜºÎ°ø±âµéÀ» 2·Î ÀÎµ¦½ÌÇÏ°í
- * 2. ³²Àº Ä¡ÁîµéÀ» Å½»öÇÏ¸é¼­ 2·Î ÀÎµ¦½ÌµÈ ¿ÜºÎ°ø±â¿Í Á¢ÃËÇÏ´Â ¸éÀÌ 2ÀÌ»óÀÌ¸é ³ìÀ» ´ë»óÀÌ¶ó°í 3À¸·Î ÀÎµ¦½Ì
- * 3. ³ìÀ» ´ë»ó(3)À¸·Î Ç¥±âµÈ Ä¡ÁîµéÀ» ¿ÜºÎ°ø±â·Î ¹Ù²ãÁØ´Ù(2)
- * 4. 1~3 ¹Ýº¹
+ * ì™¸ë¶€ê³µê¸°, ë‚´ë¶€ê³µê¸° ì–´ë–»ê²Œ êµ¬ë¶„í•  ê²ƒì¸ì§€ê°€ ê´€ê±´
+ * 1. (0,0)ì—ì„œ bfsíƒìƒ‰ì„ ì‹œìž‘í•´ì„œ ì™¸ë¶€ê³µê¸°ë“¤ë§Œ íì— ë„£ìœ¼ë©´ì„œ íƒìƒ‰ ì™¸ë¶€ê³µê¸°ëŠ” 2ë¡œ ì¸ë±ì‹±í•´ì¤€ë‹¤
+ * ì¹˜ì¦ˆëŠ” ë„£ì§€ ì•Šê³  íƒìƒ‰í–ˆê¸° ï¿½ï¿½ë¬¸ì— ë‚´ë¶€ê³µê¸°ì— ì ‘ê·¼í•˜ì§€ ì•ŠëŠ”ë‹¤. íƒìƒ‰í•œ ì™¸ë¶€ê³µê¸°ë“¤ì„ 2ë¡œ ì¸ë±ì‹±í•˜ê³ 
+ * 2. ë‚¨ì€ ì¹˜ì¦ˆë“¤ì„ íƒìƒ‰í•˜ë©´ì„œ 2ë¡œ ì¸ë±ì‹±ëœ ì™¸ë¶€ê³µê¸°ì™€ ì ‘ì´‰í•˜ëŠ” ë©´ì´ 2ì´ìƒì´ë©´ ë…¹ì„ ëŒ€ìƒì´ë¼ê³  3ìœ¼ë¡œ ì¸ë±ì‹±
+ * 3. ë…¹ì„ ëŒ€ìƒ(3)ìœ¼ë¡œ í‘œê¸°ëœ ì¹˜ì¦ˆë“¤ì„ ì™¸ë¶€ê³µê¸°ë¡œ ë°”ê¿”ì¤€ë‹¤(2)
+ * 4. 1~3 ë°˜ë³µ
  */
 
-// ¹®Á¦Á¡.. ·ÎÁ÷Àº ¸ÂÁö¸¸ ÀÚ¹Ù¿¡¼­´Â ½ÃÃÊ°¡ ³­´Ù..
+// ë¬¸ì œì .. ë¡œì§ì€ ë§žì§€ë§Œ ìžë°”ì—ì„œëŠ” ì‹œì´ˆê°€ ë‚œë‹¤..
 /*
- * ÇØ°á¹æ¹ý -> ¸ÅÇÎÇØ¼­ ÀÏÀÏÈ÷ ´Ù½Ã °Ë»çÇÏ´Â °Íº¸´Ù´Â Ã¹ bfsÅ½»ö¿¡¼­
- * ¿ÜºÎ°ø±â¿Í ¸Â´êÀº ÀûÀÌ ÀÖ´Â Ä¡Áî¸¦ Ä«¿îÆÃÇØÁÖ´Â ¹æ¹ýÀ¸·Î
- * ³ªÁß¿¡ Ä«¿îÆÃÀÌ 2ÀÌ»óÀÌ¸é °ø±â·Î ¹Ù²ãÁÖ´Â Çü½ÄÀ¸·Î ÁøÇàÇØ¾ß ÇÒ µí
+ * í•´ê²°ë°©ë²• -> ë§¤í•‘í•´ì„œ ì¼ì¼ížˆ ë‹¤ì‹œ ê²€ì‚¬í•˜ëŠ” ê²ƒë³´ë‹¤ëŠ” ì²« bfsíƒìƒ‰ì—ì„œ
+ * ì™¸ë¶€ê³µê¸°ì™€ ë§žë‹¿ì€ ì ì´ ìžˆëŠ” ì¹˜ì¦ˆë¥¼ ì¹´ìš´íŒ…í•´ì£¼ëŠ” ë°©ë²•ìœ¼ë¡œ
+ * ë‚˜ì¤‘ì— ì¹´ìš´íŒ…ì´ 2ì´ìƒì´ë©´ ê³µê¸°ë¡œ ë°”ê¿”ì£¼ëŠ” í˜•ì‹ìœ¼ë¡œ ì§„í–‰í•´ì•¼ í•  ë“¯
  */
-public class BOJ2638Ä¡Áî_Á¦´ë·Î {
+public class BOJ2638ì¹˜ì¦ˆ_ì œëŒ€ë¡œ {
 	static int N,M;
 	static int[][] map;
 	static int[] dx = {-1,1,0,0};
@@ -50,32 +50,32 @@ public class BOJ2638Ä¡Áî_Á¦´ë·Î {
 		while(true) {
 			boolean flag = false;
 			
-			bfs(); // (1) Ä¡Áî ³», ¿ÜºÎ ±¸ºÐ½ÃÅ°±â
+			bfs(); // (1) ì¹˜ì¦ˆ ë‚´, ì™¸ë¶€ êµ¬ë¶„ì‹œí‚¤ê¸°
 			
-			// (2) ¸ðµç Ä¡Áî Ä­µéÀ» ´ë»óÀ¸·Î ³ìÀ» ¼ö ÀÖ´ÂÁö È®ÀÎÇÏ±â
+			// (2) ëª¨ë“  ì¹˜ì¦ˆ ì¹¸ë“¤ì„ ëŒ€ìƒìœ¼ë¡œ ë…¹ì„ ìˆ˜ ìžˆëŠ”ì§€ í™•ì¸í•˜ê¸°
 			flag = false;
 			for(int i=0; i<N; i++) {
 				for(int j=0; j<M; j++) {
-					// ÇØ´ç Ä­ÀÌ Ä¡ÁîÀÏ°æ¿ì
+					// í•´ë‹¹ ì¹¸ì´ ì¹˜ì¦ˆì¼ê²½ìš°
 					if(map[i][j] == 1) {
 						int cnt = 0;
-						// ±× Ä­ÀÇ »ó,ÇÏ,ÁÂ,¿ì¸¦ »ìÆìº¸°í ÃÖ¼Ò 2Ä­ÀÌ  ¿ÜºÎ°ø±â(2·Î¸ÅÇÎµÈ)°÷ÀÎÁö È®ÀÎ
+						// ê·¸ ì¹¸ì˜ ìƒ,í•˜,ì¢Œ,ìš°ë¥¼ ì‚´íŽ´ë³´ê³  ìµœì†Œ 2ì¹¸ì´  ì™¸ë¶€ê³µê¸°(2ë¡œë§¤í•‘ëœ)ê³³ì¸ì§€ í™•ì¸
 						for(int k=0; k<4; k++) {
 							int nx = i + dx[k];
 							int ny = j + dy[k];
-							// ¹üÀ§ ¾ÈÀÌ°í, ¿ÜºÎ°ø±â¿Í Á¢ÃËÇß´Ù¸é
+							// ë²”ìœ„ ì•ˆì´ê³ , ì™¸ë¶€ê³µê¸°ì™€ ì ‘ì´‰í–ˆë‹¤ë©´
 							if(nx >= 0 && ny >= 0 && nx < N && ny < M
 									&& map[nx][ny] == 2) {
 									flag = true;
 									cnt++;
 							}
 						}
-						if(cnt >= 2) map[i][j] = 5; // Á¢ÃË¸é 2ÀÌ»óÀÌ¸é ³ì´Â´ë»óÀ¸·Î Ç¥±â = 5
+						if(cnt >= 2) map[i][j] = 5; // ì ‘ì´‰ë©´ 2ì´ìƒì´ë©´ ë…¹ëŠ”ëŒ€ìƒìœ¼ë¡œ í‘œê¸° = 5
 					}
 				}
 			} // end outer for
 			
-			// (3) ³ì´Â ´ë»óÀ¸·Î Ç¥±âµÈ ÀûÀÌ ÀÖÀ» °æ¿ì ¿ÜºÎ°ø±â·Î ¹Ù²Ù±â
+			// (3) ë…¹ëŠ” ëŒ€ìƒìœ¼ë¡œ í‘œê¸°ëœ ì ì´ ìžˆì„ ê²½ìš° ì™¸ë¶€ê³µê¸°ë¡œ ë°”ê¾¸ê¸°
 			if(flag) {
 				for(int i=0; i<N; i++) {
 					for(int j=0; j<M; j++) {
@@ -88,7 +88,7 @@ public class BOJ2638Ä¡Áî_Á¦´ë·Î {
 			time++;
 			
 			flag = false;
-			// Ä¡Áî°¡ ³²¾ÆÀÖ´ÂÁö Àç°Ë»ç
+			// ì¹˜ì¦ˆê°€ ë‚¨ì•„ìžˆëŠ”ì§€ ìž¬ê²€ì‚¬
 			for(int i=0; i<N; i++) {
 				for(int j=0; j<M; j++) {
 					if(map[i][j] == 1) {
@@ -102,11 +102,11 @@ public class BOJ2638Ä¡Áî_Á¦´ë·Î {
 		
 		System.out.println(time);
 	}
-		// ¿ÜºÎ°ø±â Å¥¿¡ ³Ö¾îÁÖ¸é¼­ Å½»ö
+		// ì™¸ë¶€ê³µê¸° íì— ë„£ì–´ì£¼ë©´ì„œ íƒìƒ‰
 		public static void bfs() {
 			
 			Queue<Node> q = new LinkedList<>();
-			q.offer(new Node(0,0)); // 0,0 Àº ¹«Á¶°Ç °ø±â´Ï±î ¿©±âºÎÅÍ ¤¡¤¡
+			q.offer(new Node(0,0)); // 0,0 ì€ ë¬´ì¡°ê±´ ê³µê¸°ë‹ˆê¹Œ ì—¬ê¸°ë¶€í„° ã„±ã„±
 			visited[0][0] = true;
 			
 			while(!q.isEmpty()) {
@@ -115,12 +115,12 @@ public class BOJ2638Ä¡Áî_Á¦´ë·Î {
 				for(int i=0; i<4; i++) {
 					int nx = node.x + dx[i];
 					int ny = node.y + dy[i];
-					// ¹üÀ§ ¹þ¾î³ª¸é skip
+					// ë²”ìœ„ ë²—ì–´ë‚˜ë©´ skip
 					if(nx < 0 || ny < 0 || nx >= N || ny >= M) continue;
-					// ¹æ¹®ÇÏÁö ¾Ê¾Ò°í && °ø±âÀÌ°í && Ä¡Áî°¡ ¾Æ´Ï¶ó¸é
+					// ë°©ë¬¸í•˜ì§€ ì•Šì•˜ê³  && ê³µê¸°ì´ê³  && ì¹˜ì¦ˆê°€ ì•„ë‹ˆë¼ë©´
 					if(!visited[nx][ny] && map[nx][ny] == 0 && map[nx][ny] != 1) {
 						visited[nx][ny] = true;
-						map[nx][ny] = 2; // ¿ÜºÎ°ø±â 2·Î ¸ÅÇÎ
+						map[nx][ny] = 2; // ì™¸ë¶€ê³µê¸° 2ë¡œ ë§¤í•‘
 						q.offer(new Node(nx, ny));
 					}
 				}

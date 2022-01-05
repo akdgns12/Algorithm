@@ -2,7 +2,7 @@ package 구현;
 
 public class 방금그곡 {
 	class Solution {
-		// 프로그래머스 lv2 / 2018 카카오 기출 / 구현
+		// 프로그래머스 lv2 / 2018 카카오 기출 / 구현 //
 	    public String solution(String m, String[] musicinfos) {
 	       String answer = "(None)";
 			int maxtime = 0;

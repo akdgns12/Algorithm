@@ -1,5 +1,5 @@
 package 매일코딩;
-
+//
 public class 멀쩡한사각형 {
 
 

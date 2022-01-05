@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-
+//
 public class BOJ1238 {
 	static class Node implements Comparable<Node>{
 		int end;

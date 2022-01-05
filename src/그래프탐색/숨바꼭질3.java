@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class ¼û¹Ù²ÀÁú3 {
-	
+	//
 	static int N, K;
 	static boolean[] visited;
 	static int answer = Integer.MAX_VALUE;

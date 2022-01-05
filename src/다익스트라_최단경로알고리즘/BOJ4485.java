@@ -1,13 +1,13 @@
-package ´ÙÀÍ½ºÆ®¶ó_ÃÖ´Ü°æ·Î¾Ë°í¸®Áò;
+package ë‹¤ìµìŠ¤íŠ¸ë¼_ìµœë‹¨ê²½ë¡œì•Œê³ ë¦¬ì¦˜;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
-
+//
 public class BOJ4485 {
-	// ³ì»ö ¿Ê ÀÔÀº ¾Ö°¡ Á©´ÙÁö? / °ñµå 4 / bfs°°Àºµ¥?
+	// ë…¹ìƒ‰ ì˜· ì…ì€ ì• ê°€ ì ¤ë‹¤ì§€? / ê³¨ë“œ 4 / bfsê°™ì€ë°?
 	static class Node implements Comparable<Node>{
 		int x, y, count;
 		
@@ -56,7 +56,7 @@ public class BOJ4485 {
 	} // end while
 		
 	}
-	// ¿ì¼±¼øÀ§Å¥·Î »ç¹æ¿¡ ÀÖ´Â ÁÂÇ¥µéÀ» ´õÇÑ 4°¡Áö ÈÄº¸Áß ´õÇØ¼­ °¡Àå ÀÛÀº node.count°¡ °ñ¶óÁú ¼ö ÀÖµµ·Ï ÇØ¾ßÇÔ
+	// ìš°ì„ ìˆœìœ„íë¡œ ì‚¬ë°©ì— ìˆëŠ” ì¢Œí‘œë“¤ì„ ë”í•œ 4ê°€ì§€ í›„ë³´ì¤‘ ë”í•´ì„œ ê°€ì¥ ì‘ì€ node.countê°€ ê³¨ë¼ì§ˆ ìˆ˜ ìˆë„ë¡ í•´ì•¼í•¨
 	public static void bfs(int x, int y) {
 		PriorityQueue<Node> q = new PriorityQueue<>();
 		q.offer(new Node(x,y,map[x][y]));
@@ -65,7 +65,7 @@ public class BOJ4485 {
 		
 		while(!q.isEmpty()) {
 			Node node = q.poll();
-			// Á¾·áÁ¶°Ç(³¡ÁÂÇ¥¿¡ µµ´ŞÇßÀ» ‹š)
+			// ì¢…ë£Œì¡°ê±´(ëì¢Œí‘œì— ë„ë‹¬í–ˆì„ ï¿½ï¿½)
 			if(node.x == N-1 && node.y == N-1) {
 				min = node.count;
 				break;
@@ -75,7 +75,7 @@ public class BOJ4485 {
 				int nx = node.x + dx[i];
 				int ny = node.y + dy[i];
 				
-				// ¹üÀ§ ¹ş¾î³ª¸é skip
+				// ë²”ìœ„ ë²—ì–´ë‚˜ë©´ skip
 				if(nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
 				
 				if(!visited[nx][ny]) {

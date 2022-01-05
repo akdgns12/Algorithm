@@ -1,5 +1,5 @@
 package 매일코딩;
-
+//
 public class _5주차_모음사전 {
 	// 프로그래머스 lv2 / 위클리 5주차 / 모음사전
 	class Solution {

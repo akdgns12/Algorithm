@@ -1,5 +1,5 @@
 package 매일코딩;
-
+//
 public class 가장큰정사각형 {
 	class Solution
 	{

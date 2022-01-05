@@ -1,7 +1,7 @@
 package 구현;
 
 import java.util.Scanner;
-
+//
 public class BOJ_숫자정사각형 {
 	// 완탐 & 구현 / DP문제인 가장 큰 정사각형 찾기와 비슷한 유형이나 이건 완탐으로 돌아감
 	public static void main(String[] args) {

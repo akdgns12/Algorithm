@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class 단축키지정 {
-	// BOJ 1283 단축키 지정 / 실버 3 
+	// BOJ 1283 단축키 지정 / 실버 3 //
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			 

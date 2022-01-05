@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+//
 public class BOJ_1926 {
 	static int n,m;
 	static int[][] map;

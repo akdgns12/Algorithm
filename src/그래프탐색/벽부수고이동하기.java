@@ -1,5 +1,5 @@
-package ±×·¡ÇÁÅ½»ö;
-
+package ê·¸ë˜í”„íƒìƒ‰;
+//
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,10 +7,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class º®ºÎ¼ö°íÀÌµ¿ÇÏ±â {
+public class ë²½ë¶€ìˆ˜ê³ ì´ë™í•˜ê¸° {
 	static class Wall{
 		int x, y;
-		int cnt, brokeWallCnt; // ÀÌµ¿°Å¸®, ºÎ¼ø È½¼ö
+		int cnt, brokeWallCnt; // ì´ë™ê±°ë¦¬, ë¶€ìˆœ íšŸìˆ˜
 		public Wall(int x, int y, int cnt, int brokeWallCnt) {
 			this.x = x;
 			this.y = y;
@@ -20,11 +20,11 @@ public class º®ºÎ¼ö°íÀÌµ¿ÇÏ±â {
 	}
 	static int N, M;
 	static int[][] map;
-//	//  Ã³À½ ³»°¡ »ı°¢Çß´ø ¹æ½Ä..
-	// ¹æ¹®Ã¼Å©¸¸ ÇÏ°í º®À» ºÎ¼ø È½¼ö¸¸ Ä«¿îÆÃÇØ¼­ Á¶°ÇÀ» Ã¼Å©ÇØÁá´Ù
-	// ´ç¿¬È÷ º®À» µü ÇÑ ¹ø¸¸ ºÎ¼ø´Ù..´ÙÀ½ º®À» ¸¸³ª¸é ¹Ù·Î ¤Ÿ±×¶û
+//	//  ì²˜ìŒ ë‚´ê°€ ìƒê°í–ˆë˜ ë°©ì‹..
+	// ë°©ë¬¸ì²´í¬ë§Œ í•˜ê³  ë²½ì„ ë¶€ìˆœ íšŸìˆ˜ë§Œ ì¹´ìš´íŒ…í•´ì„œ ì¡°ê±´ì„ ì²´í¬í•´ì¤¬ë‹¤
+	// ë‹¹ì—°íˆ ë²½ì„ ë”± í•œ ë²ˆë§Œ ë¶€ìˆœë‹¤..ë‹¤ìŒ ë²½ì„ ë§Œë‚˜ë©´ ë°”ë¡œ ï¿½ê·¸ë‘
 //	static boolean[][] visited;
-	static boolean[][][] visited; // 3Â÷¿ø¹è¿­·Î ºÎ½¥À»‹š¿Í ¾ÈºÎ½¥À»‹šÀÇ ¹æ¹®Ã¼Å©¸¦ ºĞ¸®ÇØº¸ÀÚ.
+	static boolean[][][] visited; // 3ì°¨ì›ë°°ì—´ë¡œ ë¶€ì‰ˆì„ï¿½ï¿½ì™€ ì•ˆë¶€ì‰ˆì„ï¿½ï¿½ì˜ ë°©ë¬¸ì²´í¬ë¥¼ ë¶„ë¦¬í•´ë³´ì.
 	static int[] dx = {-1,1,0,0};
 	static int[] dy = {0,0,-1,1};
 	
@@ -45,7 +45,7 @@ public class º®ºÎ¼ö°íÀÌµ¿ÇÏ±â {
 			}
 		}
 		
-		bfs(0,0); // Ãâ¹ßÁ¡¿¡¼­ bfs ½ÃÀÛ
+		bfs(0,0); // ì¶œë°œì ì—ì„œ bfs ì‹œì‘
 	}
 	
 	public static void bfs(int x, int y) {
@@ -70,12 +70,12 @@ public class º®ºÎ¼ö°íÀÌµ¿ÇÏ±â {
 				
 				if(nx < 0 || ny < 0 || nx >= N || ny >= M) continue;
 				
-				if(map[nx][ny] == 1) { // º®À» ¸¸³²
-					if(breakWall == 0 && !visited[nx][ny][1]) { // º® ºÎ½ÅÀû ¾øÀÌ ¾ø´Ù¸é
-						visited[nx][ny][1] = true; // º® ºÎ½É
+				if(map[nx][ny] == 1) { // ë²½ì„ ë§Œë‚¨
+					if(breakWall == 0 && !visited[nx][ny][1]) { // ë²½ ë¶€ì‹ ì  ì—†ì´ ì—†ë‹¤ë©´
+						visited[nx][ny][1] = true; // ë²½ ë¶€ì‹¬
 						q.offer(new Wall(nx, ny, cnt+1, 1));
 					}
-				}else { // ºó Ä­
+				}else { // ë¹ˆ ì¹¸
 					if(!visited[nx][ny][breakWall]) {
 						q.offer(new Wall(nx, ny, cnt+1, breakWall));
 						visited[nx][ny][breakWall] = true;

@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
+//
 public class 텀프로젝트 {
 	// 프로젝트 팀에 속하지 못한 학생들의 수 나타내라
 	// 싸이클 형성하지 못하는 노드 찾기, 자기자신 가리키는 노드 제외

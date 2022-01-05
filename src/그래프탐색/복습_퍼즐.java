@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-
+//
 public class ∫πΩ¿_∆€¡Ò {
 	static String correct = "123456780";
 	static HashMap<String, Integer> map = new HashMap<>();

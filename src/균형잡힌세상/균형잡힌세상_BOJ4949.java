@@ -1,11 +1,11 @@
-package ±ÕÇüÀâÈù¼¼»ó;
+package ê· í˜•ì¡íŒì„¸ìƒ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Stack;
-
-public class ±ÕÇüÀâÈù¼¼»ó_BOJ4949 {
+//
+public class ê· í˜•ì¡íŒì„¸ìƒ_BOJ4949 {
 
 	public static void main(String[] args) throws IOException{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -28,16 +28,16 @@ public class ±ÕÇüÀâÈù¼¼»ó_BOJ4949 {
 		Stack<Character> stack = new Stack<>();
 		
 		for(int i=0; i<s.length(); i++) {
-			char c= s.charAt(i); //i ¹ø¤Š ¹®ÀÚ
+			char c= s.charAt(i); //i ë²ˆï¿½ ë¬¸ì
 			
-			//¿©´Â °ıÈ£ÀÏ °æ¿ì ½ºÅÃ¿¡ push
+			//ì—¬ëŠ” ê´„í˜¸ì¼ ê²½ìš° ìŠ¤íƒì— push
 			if(c == '(' || c == '[') {
 				stack.push(c);
 			}
 			
-			//´İ´Â ¼Ò°ıÈ£ÀÏ °æ¿ì
+			//ë‹«ëŠ” ì†Œê´„í˜¸ì¼ ê²½ìš°
 			else if(c == ')') {
-				//½ºÅÃÀÌ ºñ¾îÀÖ°Å³ª popÇÒ ¿ø¼Ò°¡ ¼Ò°ıÈ£¶û ¸ÅÄªÀÌ ¾ÈµÇ´Â °æ¿ì
+				//ìŠ¤íƒì´ ë¹„ì–´ìˆê±°ë‚˜ popí•  ì›ì†Œê°€ ì†Œê´„í˜¸ë‘ ë§¤ì¹­ì´ ì•ˆë˜ëŠ” ê²½ìš°
 				if(stack.empty() || stack.peek() != '(') {
 					return "no";
 				}
@@ -48,7 +48,7 @@ public class ±ÕÇüÀâÈù¼¼»ó_BOJ4949 {
 			
 			else if(c == ']') {
 				
-				// ½ºÅÃÀÌ ºñ¾îÀÖ°Å³ª popÇÒ ¿ø¼Ò°¡ ¼Ò°ıÈ£¶û ¸ÅÄªÀÌ ¾ÈµÇ´Â °æ¿ì
+				// ìŠ¤íƒì´ ë¹„ì–´ìˆê±°ë‚˜ popí•  ì›ì†Œê°€ ì†Œê´„í˜¸ë‘ ë§¤ì¹­ì´ ì•ˆë˜ëŠ” ê²½ìš°
 				if(stack.empty() || stack.peek() != '[') {
 					return "no";
 				}
@@ -57,7 +57,7 @@ public class ±ÕÇüÀâÈù¼¼»ó_BOJ4949 {
 				}
 			}
 			
-			//±× ¿ÜÀÇ °æ¿ì¿¡´Â ºÒÇÊ¿äÇÑ ¹®ÀÚµéÀÌ±â¿¡ skipÇÑ´Ù
+			//ê·¸ ì™¸ì˜ ê²½ìš°ì—ëŠ” ë¶ˆí•„ìš”í•œ ë¬¸ìë“¤ì´ê¸°ì— skipí•œë‹¤
 		}
 		
 		if(stack.empty()) {

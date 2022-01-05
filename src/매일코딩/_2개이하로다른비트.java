@@ -1,5 +1,5 @@
 package 매일코딩;
-
+//
 public class _2개이하로다른비트 {
 	import java.util.*;
 

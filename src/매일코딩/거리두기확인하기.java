@@ -1,5 +1,5 @@
 package 매일코딩;
-
+//
 public class 거리두기확인하기 {
 	import java.util.*;
 

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
-
+//
 /*
  * 총 7명의 학생 조합을 뽑는데, 7명 중 최소 4명은 '이다솜파'여야 한다.
  * 이 상태에서 이 7명의 학생들이 인접해있는지 확인해야 한다.

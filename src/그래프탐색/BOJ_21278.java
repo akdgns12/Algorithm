@@ -1,5 +1,5 @@
-package ±×·¡ÇÁÅ½»ö;
-
+package ê·¸ëž˜í”„íƒìƒ‰;
+//
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,12 +8,12 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class BOJ_21278 {
-	// È£¼®ÀÌ µÎ¸¶¸®Ä¡Å² / °ñ5 / ´ÙÀÍ½ºÆ®¶ó
+	// í˜¸ì„ì´ ë‘ë§ˆë¦¬ì¹˜í‚¨ / ê³¨5 / ë‹¤ìµìŠ¤íŠ¸ë¼
 	/*
-	 * ¸ðµç Á¤Á¡À¸·ÎºÎÅÍ ¸ðµç Á¤Á¡±îÁöÀÇ ÃÖ´Ü°Å¸® -> ´ÙÀÍ½ºÆ®¶ó? (X)
-	 * ÇÃ·ÎÀÌµå ¿Í¼£
-	 * 2Â÷¿ø Å×ÀÌºí¿¡ ­C³ª°Å¸® Á¤º¸¸¦ ÀúÀå
-	 * ÇÃ·ÎÀÌµå ¿Í¼£ ¾Ë°í¸®ÁòÀº dp¿¡ ¼ÓÇÔ
+	 * ëª¨ë“  ì •ì ìœ¼ë¡œë¶€í„° ëª¨ë“  ì •ì ê¹Œì§€ì˜ ìµœë‹¨ê±°ë¦¬ -> ë‹¤ìµìŠ¤íŠ¸ë¼? (X)
+	 * í”Œë¡œì´ë“œ ì™€ìƒ¬
+	 * 2ì°¨ì› í…Œì´ë¸”ì— ï¿½Cë‚˜ê±°ë¦¬ ì •ë³´ë¥¼ ì €ìž¥
+	 * í”Œë¡œì´ë“œ ì™€ìƒ¬ ì•Œê³ ë¦¬ì¦˜ì€ dpì— ì†í•¨
 	 */
 	static int N, M;
 	static final int INF = (int)1e9;
@@ -29,21 +29,21 @@ public class BOJ_21278 {
 		
 		graph = new int[N+1][N+1];
 		
-		// ÃÖ´Ü°Å¸® Å×ÀÌºíÀ» ¸ðµÎ ¹«ÇÑÀ¸·Î ÃÊ±âÈ­
+		// ìµœë‹¨ê±°ë¦¬ í…Œì´ë¸”ì„ ëª¨ë‘ ë¬´í•œìœ¼ë¡œ ì´ˆê¸°í™”
 		for(int i=1; i<=N; i++) {
 			Arrays.fill(graph[i], INF);
-			//3. °úÁ¤ ¿©±â¼­ ÇÑ¹ø¿¡ Ã³¸®ÇÒ ¼ö ÀÖ´Ù.
+			//3. ê³¼ì • ì—¬ê¸°ì„œ í•œë²ˆì— ì²˜ë¦¬í•  ìˆ˜ ìžˆë‹¤.
 			graph[i][i] = 0;
 		}
 		
-//		// 3.ÀÚ±âÀÚ½ÅÀ¸·Î °¡´Â ºñ¿ëÀº ¸ðµÎ 0À¸·Î ÃÊ±âÈ­
+//		// 3.ìžê¸°ìžì‹ ìœ¼ë¡œ ê°€ëŠ” ë¹„ìš©ì€ ëª¨ë‘ 0ìœ¼ë¡œ ì´ˆê¸°í™”
 //		for(int a=1; a<=N; a++) {
 //			for(int b=1; b<=N; b++) {
 //				if(a == b) graph[a][b] = 0;
 //			}
 //		}
 //		
-		// °£¼± Á¤º¸ ÀÔ·Â¹Þ±â
+		// ê°„ì„  ì •ë³´ ìž…ë ¥ë°›ê¸°
 		for(int i=0; i<M; i++) {
 			st = new StringTokenizer(br.readLine());
 			int a = Integer.parseInt(st.nextToken());
@@ -60,7 +60,7 @@ public class BOJ_21278 {
 		for(int i=1; i<graph.length; i++) {
 			for(int j=i+1; j<graph.length; j++) {
 				int sum = 0;
-				// °Ç¹°(k)¿¡¼­ Ä¡Å² ÁýÀÌ ´õ °¡±î¿î ÂÊÀ¸·Î °¡±â ¶§¹®¿¡ (i,k) (j,k) Áß ÃÖ¼Ò °ªÀ» ÃÑÇÕ¿¡ ³Ö½À´Ï´Ù.
+				// ê±´ë¬¼(k)ì—ì„œ ì¹˜í‚¨ ì§‘ì´ ë” ê°€ê¹Œìš´ ìª½ìœ¼ë¡œ ê°€ê¸° ë•Œë¬¸ì— (i,k) (j,k) ì¤‘ ìµœì†Œ ê°’ì„ ì´í•©ì— ë„£ìŠµë‹ˆë‹¤.
 				for(int k=1; k<graph.length; k++) {
 					sum += Math.min(graph[i][k], graph[j][k]);
 				}

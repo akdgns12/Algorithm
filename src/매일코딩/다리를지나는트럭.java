@@ -1,5 +1,5 @@
 package 매일코딩;
-
+//
 public class 다리를지나는트럭 {
 	import java.util.*;
 

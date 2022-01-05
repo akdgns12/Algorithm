@@ -1,5 +1,5 @@
 package 구현;
-class Solution {
+class Solution {//
     //n진법, 숫자의 개수 t, 게임에 참가하는 인원 m, 튜브의 순서 p
     public String solution(int n, int t, int m, int p) {
        String s = "0";

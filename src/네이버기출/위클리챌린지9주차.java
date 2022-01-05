@@ -2,7 +2,7 @@ package 네이버기출;
 
 import java.util.ArrayList;
 import java.util.Queue;
-
+//
 public class 위클리챌린지9주차 {
 	// 프로그래머스 위클리 챌린지 9주차 / 그래프 탐색 / 인접 배열
 	// 1. 모든 wires의 왼쪽 노드와 오른쪽 노드를 끊어가며 재귀를 통해 연결된 모든 노드의 개수를 계산
